@@ -10,16 +10,20 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
+            <!-- Añadir fuente Dongle como estilo -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="DongleFont">
+                <On Platform="iOS" Value="Dongle-Regular" />
+                <On Platform="Android" Value="Dongle-Regular.ttf#Dongle-Regular" />
+                <On Platform="UWP" Value="Assets/Fonts/Dongle-Regular.ttf#Dongle-Regular" />
+            </OnPlatform>
 
-
-
-            
-
-
+            <Style TargetType="Label" x:Key="ProductoLabelStyle">
+                <Setter Property="FontFamily" Value="{StaticResource DongleFont}" />
+                
+            </Style>
+            <!--  -->
 
         </ResourceDictionary>
-        
-        
         
     </Application.Resources>
 </Application>

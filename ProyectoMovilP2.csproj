@@ -48,4 +48,20 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\Dongle-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Dongle-Light.ttf" />
+	  <None Remove="Resources\Fonts\Dongle-Regular.ttf" />
+	  <None Remove="Resources\Images\img_contacto.svg" />
+	  <None Remove="Resources\Images\img_menu.svg" />
+	  <None Remove="Resources\Images\img_perfil.svg" />
+	  <None Remove="Resources\Images\img_redes.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Home.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

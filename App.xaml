@@ -23,6 +23,32 @@
             </Style>
             <!--  -->
 
+            <!-- Añadir fuente Dongle como estilo -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsFont">
+                <On Platform="iOS" Value="Poppins-Regular" />
+                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                <On Platform="UWP" Value="Assets/Fonts/Poppins-Regular.ttf#Poppins-Regular" />
+            </OnPlatform>
+
+            <Style TargetType="Label" x:Key="EstiloPoppins">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsFont}" />
+
+            </Style>
+            <!--  -->
+
+            <!-- Añadir fuente Dongle como estilo -->
+            <OnPlatform x:TypeArguments="x:String" x:Key="PoppinsFontSemi">
+                <On Platform="iOS" Value="Poppins-Semibold" />
+                <On Platform="Android" Value="Poppins-Semibold.ttf#Poppins-Semibold" />
+                <On Platform="UWP" Value="Assets/Fonts/Poppins-Semibold.ttf#Poppins-Semibold" />
+            </OnPlatform>
+
+            <Style TargetType="Label" x:Key="PoppinsSemiBold">
+                <Setter Property="FontFamily" Value="{StaticResource PoppinsFont}" />
+
+            </Style>
+            <!--  -->
+
         </ResourceDictionary>
         
     </Application.Resources>

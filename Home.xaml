@@ -9,15 +9,15 @@
              BarBackgroundColor="White"
              SelectedTabColor= "#CF2F2F"
              UnselectedTabColor="#C1C6C6">
-    
+
     <ContentPage IconImageSource="img_menu.svg">
 
 
         <ScrollView>
-            <StackLayout Padding="10" Spacing="-10">
+            <StackLayout Padding="10" Spacing="-3">
                 <Image Source="logo_rojo.svg" Aspect="AspectFit" HeightRequest="45" VerticalOptions="Center" HorizontalOptions="Start" Margin="20,0,0,5"></Image>
 
-                    <!-- Producto 1 -->
+                <!-- Producto 1 -->
 
                 <Frame CornerRadius="22" HasShadow="True" Margin="0,5,0,0" BorderColor="#80FFFFFF">
                     <Grid>
@@ -39,9 +39,10 @@
                     </Grid>
                 </Frame>
 
-                <BoxView HeightRequest="1" Color="LightGray" Margin="10,10,10,5" Grid.Row="1" /><!--CONFIGURAR AL FINAL-->
+                <BoxView HeightRequest="1" Color="LightGray" Margin="10,10,10,5" Grid.Row="1" />
+                <!--CONFIGURAR AL FINAL-->
 
-                
+
                 <!-- Producto 2 -->
 
                 <Frame CornerRadius="22" HasShadow="True" Margin="0,5,0,0" BorderColor="#80FFFFFF">
@@ -50,7 +51,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="prod_pollo.jpg" Aspect="AspectFit" HeightRequest="90" VerticalOptions="Center" HorizontalOptions="Start" Margin="-13,0,0,0"/>
+                        <Image Source="prod_pollo.jpg" Aspect="AspectFit" HeightRequest="92" VerticalOptions="Center" HorizontalOptions="Start" Margin="-23,0,0,0"/>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -64,6 +65,8 @@
                     </Grid>
                 </Frame>
 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="10,10,10,5" Grid.Row="1" />
+                <!--CONFIGURAR AL FINAL-->
                 <!-- Producto 3 -->
 
                 <Frame CornerRadius="22" HasShadow="True" Margin="0,5,0,0" BorderColor="#80FFFFFF">
@@ -72,7 +75,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="foto_papas.jpg" Aspect="AspectFit" HeightRequest="85" VerticalOptions="Center" HorizontalOptions="Start" Margin="-13,0,0,0"/>
+                        <Image Source="foto_papas_dos.png" Aspect="AspectFit" HeightRequest="120" VerticalOptions="Center" HorizontalOptions= "Start" Margin="0,0,12,0"/>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -86,6 +89,8 @@
                     </Grid>
                 </Frame>
 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="10,10,10,5" Grid.Row="1" />
+                <!--CONFIGURAR AL FINAL-->
                 <!-- Producto 4 -->
 
                 <Frame CornerRadius="22" HasShadow="True" Margin="0,5,0,0" BorderColor="#80FFFFFF">
@@ -94,7 +99,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="foto_pizza.jpg" Aspect="AspectFit" HeightRequest="90" VerticalOptions="Center" HorizontalOptions="Start" Margin="-13,0,0,0"/>
+                        <Image Source="foto_pizza.png" Aspect="AspectFit" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Start" Margin="-25,0,-10,0"/>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -108,6 +113,8 @@
                     </Grid>
                 </Frame>
 
+                <BoxView HeightRequest="1" Color="LightGray" Margin="10,10,10,5" Grid.Row="1" />
+                <!--CONFIGURAR AL FINAL-->
                 <!-- Producto 5 -->
 
                 <Frame CornerRadius="22" HasShadow="True" Margin="0,5,0,0" BorderColor="#80FFFFFF">
@@ -116,7 +123,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Source="foto_hotdog.jpg" Aspect="AspectFit" HeightRequest="90" VerticalOptions="Center" HorizontalOptions="Start" Margin="-13,0,0,0"/>
+                        <Image Source="foto_hotdog.png" Aspect="AspectFit" HeightRequest="70" VerticalOptions="Center" HorizontalOptions="Start" Margin="-10,0,0,0"/>
                         <Grid Grid.Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -131,7 +138,7 @@
                 </Frame>
             </StackLayout>
         </ScrollView>
-                            
+
 
     </ContentPage>
 
@@ -140,6 +147,7 @@
 
     <ContentPage IconImageSource="img_redes.svg"></ContentPage>
     <ContentPage IconImageSource="img_perfil">
-        <Label Text="Demostracion texto"></Label>
+        <Label Text="texto demostraacion"></Label>
+
     </ContentPage>
 </TabbedPage>

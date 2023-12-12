@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoMovilP2.Home"
-             Title="Home"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
-             android:TabbedPage.ToolbarPlacement="Bottom"
-            
-             BarBackgroundColor="White"
-             SelectedTabColor= "#CF2F2F"
-             UnselectedTabColor="#C1C6C6">
+             android:TabbedPage.ToolbarPlacement="Bottom">
 
-    <ContentPage IconImageSource="img_menu.svg">
 
 
         <ScrollView>
@@ -138,16 +132,5 @@
                 </Frame>
             </StackLayout>
         </ScrollView>
-
-
-    </ContentPage>
-
-
-
-
-    <ContentPage IconImageSource="img_redes.svg"></ContentPage>
-    <ContentPage IconImageSource="img_perfil">
-        <Label Text="texto demostraacion"></Label>
-
-    </ContentPage>
-</TabbedPage>
+    
+</ContentPage>

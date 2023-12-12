@@ -6,9 +6,25 @@
     xmlns:local="clr-namespace:ProyectoMovilP2"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        
+        
+        <ShellContent
+        Title="Inicio"
+        Icon="img_menu.svg"
+        
+        ContentTemplate="{DataTemplate local:Home}"/>
+
+        <ShellContent
+        Title="Redes"
+        Icon="img_redes.svg"
+        ContentTemplate="{DataTemplate local:MainPage}"/>
+
+        <ShellContent
+        Title="Perfil"
+        Icon="img_perfil.svg"
+        ContentTemplate="{DataTemplate local:Home}"/>
+
+    </TabBar>
 
 </Shell>

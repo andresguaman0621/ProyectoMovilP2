@@ -1,5 +1,7 @@
-using Microsoft.Maui.Controls.PlatformConfiguration;
+//using Microsoft.Maui.Controls.PlatformConfiguration;
 
+
+using ProyectoMovilP2.Models;
 
 namespace ProyectoMovilP2.Views;
 

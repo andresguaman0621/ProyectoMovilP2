@@ -37,6 +37,14 @@ public partial class Home : ContentPage
             //notesCollection.SelectedItem = null;
         }
     }
+
+    private async void Product_Clicked(object sender, EventArgs e)
+    {
+        if (sender is Button button && button.BindingContext is Product selectedProduct)
+        {
+            await Shell.Current.GoToAsync($"{nameof(ProductPage)}?{nameof(ProductPage.ItemId)}={selectedProduct.Filename}");
+        }
+    }
 }
 
 

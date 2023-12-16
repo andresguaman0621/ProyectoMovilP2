@@ -3,7 +3,7 @@
     x:Class="ProyectoMovilP2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:ProyectoMovilP2"
+    xmlns:views="clr-namespace:ProyectoMovilP2.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <TabBar>
@@ -13,17 +13,17 @@
         Title="Inicio"
         Icon="img_menu.svg"
         
-        ContentTemplate="{DataTemplate local:Home}"/>
+        ContentTemplate="{DataTemplate views:Home}"/>
 
         <ShellContent
         Title="Redes"
         Icon="img_redes.svg"
-        ContentTemplate="{DataTemplate local:MainPage}"/>
+        ContentTemplate="{DataTemplate views:ProductPage}"/>
 
         <ShellContent
         Title="Perfil"
         Icon="img_perfil.svg"
-        ContentTemplate="{DataTemplate local:Home}"/>
+        ContentTemplate="{DataTemplate views:ProfilePage}"/>
 
     </TabBar>
 

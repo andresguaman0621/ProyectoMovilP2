@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:ProyectoMovilP2.Models"
+             x:Class="ProyectoMovilP2.Views.ProfilePage"
+             Title="ProfilePage">
+
+    <ContentPage.BindingContext>
+        <models:Profile />
+    </ContentPage.BindingContext>
+
+
+    <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+        <!-- Imagen del usuario en un círculo -->
+        <Frame CornerRadius="100" WidthRequest="200" HeightRequest="200" HasShadow="True" Padding="0" Margin="0" HorizontalOptions="Center">
+            <Image Source="img_menu.svg" Aspect="AspectFill" />
+        </Frame>
+
+        <!-- Nombre del usuario -->
+        <Label Text="{Binding NombreUsuario}" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0" />
+        <Label Text="{Binding Title}" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0" />
+        <Label Text="{Binding Version}" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0" />
+
+        <!-- Botones de Ayuda, Configuración y Preferencias -->
+        <!--<StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Spacing="20" Margin="0,30,0,0">
+             <Button Text="Ayuda" HorizontalOptions="Center" />
+             <Button Text="Configuración" HorizontalOptions="Center" />
+             <Button Text="Preferencias" HorizontalOptions="Center"/>
+         </StackLayout>-->
+    </StackLayout>
+</ContentPage>

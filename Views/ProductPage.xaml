@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProyectoMovilP2.Views.ProductPage"
+             Title="ProductPage">
+
+    <VerticalStackLayout Padding="10">
+
+        <!-- Imagen del producto -->
+        <Image Source="{Binding Imagen}" 
+       Aspect="AspectFit" 
+       HeightRequest="200" 
+       Margin="0,0,0,20" 
+       VerticalOptions="Start" />
+
+        <!-- Etiquetas de nombre y descripción del producto -->
+        <Label Text="{Binding Nombre}" VerticalOptions="Start" />
+        <Label Text="{Binding Descripcion}" VerticalOptions="Start" />
+        <Label Text="{Binding Precio}" VerticalOptions="Start" />
+
+
+        <!-- Indicaciones Especiales (Editor) -->
+        <Editor Placeholder="Indicaciones Especiales" 
+        HeightRequest="100" 
+        Margin="0,0,0,20" 
+        x:Name="TextEditor" 
+        Text="{Binding Text}"
+        VerticalOptions="Start" />
+
+        <!-- Botón Pedir -->
+        <Button Text="Pedir" 
+        HorizontalOptions="FillAndExpand" 
+        BackgroundColor="#CF2F2F" 
+        TextColor="White" 
+        
+        Clicked="Button_Pedir"
+        VerticalOptions="Start" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -28,12 +28,26 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+            <Button Text="Pagos" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#CF2F2F" Margin="10,0,0,0">
+
+
+                <Button.ImageSource>
+                    <FileImageSource File="img_menu.svg"/>
+
+
+                </Button.ImageSource>
+                <Button.WidthRequest>90</Button.WidthRequest>
+                <Button.HeightRequest>30</Button.HeightRequest>
+                
+            </Button>
+                    
+                    
+           
+
+
+
+
+
 
         </VerticalStackLayout>
     </ScrollView>

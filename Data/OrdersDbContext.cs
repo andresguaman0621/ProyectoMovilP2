@@ -1,0 +1,22 @@
+﻿using Microsoft.EntityFrameworkCore.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using ProyectoMovilP2.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ProyectoMovilP2.Data
+{
+    public class OrdersDbContext : DbContext
+    {
+        public DbSet<Order> Orders { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+
+            options.UseSqlServer("Server=tcp:pedidosninjafoodapp.database.windows.net;Initial Catalog=pedidos-ninja-food;User ID=andresadmin;Password=Caravana.1*;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+        }
+
+    }
+}

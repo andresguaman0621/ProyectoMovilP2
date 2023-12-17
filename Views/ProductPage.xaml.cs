@@ -1,52 +1,53 @@
 //using static Android.Content.ClipData;
+using ProyectoMovilP2.Models;
+
 namespace ProyectoMovilP2.Views;
 
-[QueryProperty(nameof(ItemId), nameof(ItemId))]
+
 public partial class ProductPage : ContentPage
 
 {
-    string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
-    public ProductPage()
+    public ProductPage(Product selectedProduct)
     {
         InitializeComponent();
-        string appDataPath = FileSystem.AppDataDirectory;
-        string randomFileName = $"{Path.GetRandomFileName()}.notes.txt";
-
-        LoadNote(Path.Combine(appDataPath, randomFileName));
+        BindingContext = selectedProduct;
     }
 
-    private async void Button_Pedir(object sender, EventArgs e)
+    private async void PedirButton_Clicked(object sender, EventArgs e)
     {
-
-        if (BindingContext is Models.Product note)
-            File.WriteAllText(note.Filename, TextEditor.Text);
-
-        await Shell.Current.GoToAsync("..");
-
-    }
-
-    private void LoadNote(string fileName)
-    {
-        Models.Product noteModel = new Models.Product();
-        noteModel.Filename = fileName;
-
-        if (File.Exists(fileName))
+        if (BindingContext is Product product)
         {
-            noteModel.Date = File.GetCreationTime(fileName);
-            noteModel.Text = File.ReadAllText(fileName);
-            noteModel.Filename = File.ReadAllText(fileName);
-            noteModel.Nombre = File.ReadAllText(fileName);
-            noteModel.Descripcion = File.ReadAllText(fileName);
-            noteModel.Precio = float.TryParse(File.ReadAllText(fileName), out float precio) ? precio : 0.00f;
-            noteModel.Imagen = File.ReadAllText(fileName);
+            string orderDetails = $"Fecha de Pedido: {DateTime.Now}\n"; // Agregar la fecha y hora de pedido
+            orderDetails += $"Producto: {product.Nombre}\nDescripción: {product.Descripcion}\nPrecio: {product.Precio:C}\n";
+            orderDetails += $"Indicaciones Especiales: {TextEditor.Text}\n";
+            orderDetails += $"Papas Extra: {product.ExtraPapas}\nGaseosa: {product.ConGaseosa}\nSalsas Extra: {product.ExtraSalsas}\n";
 
+
+            try
+            {
+                //string downloadsFolderPath = Path.Combine(FileSystem.AppDataDirectory, "Download");
+                string downloadsFolderPath = "/storage/emulated/0/Download";
+
+                string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+                string fileName = $"Orden_{timestamp}.txt";
+
+                // Ruta completa del archivo en la carpeta de descargas
+                string filePath = Path.Combine(downloadsFolderPath, fileName);
+
+                // Escritura de los datos en el archivo
+                using (StreamWriter writer = File.CreateText(filePath))
+                {
+                    await writer.WriteAsync(orderDetails);
+                }
+
+                // Muestra el DisplayAlert si se ha guardado correctamente
+                await DisplayAlert("Éxito", "Orden exitosa", "Aceptar");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores en caso de fallo al guardar el archivo
+                await DisplayAlert("Error", $"Ocurrió un error al guardar la orden: {ex.Message}", "Aceptar");
+            }
         }
-
-        BindingContext = noteModel;
-    }
-
-    public string ItemId
-    {
-        set { LoadNote(value); }
     }
 }

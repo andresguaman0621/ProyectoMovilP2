@@ -18,7 +18,7 @@
         <ShellContent
         Title="Redes"
         Icon="img_redes.svg"
-        ContentTemplate="{DataTemplate views:ProductPage}"/>
+        ContentTemplate="{DataTemplate views:ProfilePage}"/>
 
         <ShellContent
         Title="Perfil"

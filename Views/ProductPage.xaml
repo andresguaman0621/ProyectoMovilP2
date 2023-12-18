@@ -3,8 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProyectoMovilP2.Views.ProductPage"
              Title="Ordenar Producto">
-
+    <ScrollView>
     <VerticalStackLayout Padding="10">
+
+        <!-- Etiquetas de nombre y descripción del producto -->
+        <Label Text="{Binding Nombre}" VerticalOptions="Start" FontFamily="Poppins-Bold" FontSize="27" Margin="10,0,0,0"/>
+        <Label Text="{Binding Precio, StringFormat='{0:C}'}" VerticalOptions="Start" FontFamily="Poppins" FontSize="17" Margin="10,0,0,0"/>
 
         <!-- Imagen del producto -->
         <Image Source="{Binding Imagen}" 
@@ -13,19 +17,13 @@
        Margin="0,0,0,20" 
        VerticalOptions="Start" />
 
-        <!-- Etiquetas de nombre y descripción del producto -->
-        <Label Text="{Binding Nombre}" VerticalOptions="Start" />
-        <Label Text="{Binding Descripcion}" VerticalOptions="Start" />
-        <Label Text="{Binding Precio}" VerticalOptions="Start" />
+        
+        <!--Etiqueta de descripcion-->
+        <Label Text="{Binding Descripcion}" VerticalOptions="Start" HorizontalTextAlignment="Center" FontSize="15" FontFamily="Poppins" Margin="14,0,14,20"/>
+        <Label Text="Acompañamientos" Margin="10,0,0,0" FontSize="25" FontFamily="Poppins-Bold"></Label>
 
 
-        <!-- Indicaciones Especiales (Editor) -->
-        <Editor Placeholder="Indicaciones Especiales" 
-        HeightRequest="100" 
-        Margin="0,0,0,20" 
-        x:Name="TextEditor" 
-        Text="{Binding Text}"
-        VerticalOptions="Start" />
+        
 
 
         <!-- Porciones extra Checkboxs -->
@@ -36,27 +34,41 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <StackLayout Orientation="Horizontal" Grid.Column="0">
-                <CheckBox IsChecked="{Binding ExtraPapas}" HorizontalOptions="Start"/>
+                <CheckBox Margin="5,0,0,0" IsChecked="{Binding ExtraPapas}" HorizontalOptions="Start" x:Name="ExtraPapasCheckBox"/>
                 <Label Text="Papas Extra " HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Grid.Column="1">
-                <CheckBox IsChecked="{Binding ConGaseosa}" HorizontalOptions="Start"/>
-                <Label Text="Gaseosa " HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                <CheckBox IsChecked="{Binding ConGaseosa}" HorizontalOptions="Start" x:Name="ConGaseosaCheckBox"/>
+                <Label Text="Gaseosa" HorizontalOptions="Start" VerticalOptions="Center" />
             </StackLayout>
             <StackLayout Orientation="Horizontal" Grid.Column="2">
-                <CheckBox IsChecked="{Binding ExtraSalsas}" HorizontalOptions="Start"/>
+                <CheckBox Margin="5,0,0,0" IsChecked="{Binding ExtraSalsas}" HorizontalOptions="Start" x:Name="ExtraSalsasCheckBox"/>
                 <Label Text="Salsas extra " HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
             </StackLayout>
         </Grid>
 
+
+        <Label Text="Indicaciones" Margin="10,20,0,0" FontSize="25" FontFamily="Poppins-Bold"></Label>
+        <!-- Indicaciones Especiales (Editor) -->
+        <Editor Placeholder="Instrucciones especiales para tu pedido (opcional)" 
+        HeightRequest="100" 
+        Margin="12,0,0,20" 
+        x:Name="TextEditor" 
+        Text="{Binding Text}"
+        VerticalOptions="Start" />
+        
+        
         <!-- Botón Pedir -->
-        <Button Text="Pedir" 
+        <Button Text="PEDIR AHORA" 
         HorizontalOptions="FillAndExpand" 
         BackgroundColor="#CF2F2F" 
         TextColor="White" 
+        FontFamily="Poppins-SemiBold"
+        FontSize="20"
         Clicked="PedirButton_Clicked"
         VerticalOptions="Start" />
 
     </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

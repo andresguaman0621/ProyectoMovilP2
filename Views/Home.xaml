@@ -4,12 +4,18 @@
              x:Class="ProyectoMovilP2.Views.Home"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              android:TabbedPage.ToolbarPlacement="Bottom">
-
+    
+    
     <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
+        
         <ListView.ItemTemplate>
+            
             <DataTemplate>
+                
                 <ViewCell>
+                    
                     <StackLayout Padding="10">
+                        
                         <Frame CornerRadius="22" HasShadow="True" Margin="0,5,0,0" BorderColor="#80FFFFFF">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -24,9 +30,9 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Label Text="{Binding Nombre}" FontSize="16" Margin="10,0,0,5" FontFamily="PoppinsBold" HorizontalOptions="Start" Grid.Row="0"/>
-                                    <Label Text="{Binding Descripcion}" FontSize="15" Margin="10,-6,0,10" HorizontalOptions="Start" Grid.Row="1"/>
-                                    <Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}" FontSize="15" Margin="10,-6,0,10" HorizontalOptions="Start" Grid.Row="2"/>
+                                    <Label Text="{Binding Nombre}" FontSize="17" Margin="10,0,0,5" FontFamily="Poppins" HorizontalOptions="Start" Grid.Row="0"/>
+                                    <!--<Label Text="{Binding Descripcion}" FontSize="15" Margin="10,-6,0,10" HorizontalOptions="Start" Grid.Row="1"/>-->
+                                    <Label Text="{Binding Precio, StringFormat='{0:C}'}" FontSize="15" Margin="10,-6,0,10" HorizontalOptions="Start" Grid.Row="2" FontFamily="Poppins-Bold"/>
                                     <Button Text="ORDENAR" HorizontalOptions="Start" VerticalOptions="Start" BackgroundColor="#CF2F2F" Grid.Row="4" Margin="10,0,0,0"
                                      Clicked="Product_Clicked"/>
                                 </Grid>

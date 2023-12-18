@@ -15,10 +15,10 @@
         
         ContentTemplate="{DataTemplate views:Home}"/>
 
-        <ShellContent
+        <!--<ShellContent
         Title="Redes"
         Icon="img_redes.svg"
-        ContentTemplate="{DataTemplate views:ProfilePage}"/>
+        ContentTemplate="{DataTemplate views:ProfilePage}"/>-->
 
         <ShellContent
         Title="Perfil"

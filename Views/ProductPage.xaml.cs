@@ -56,7 +56,6 @@ public partial class ProductPage : ContentPage
 
     private async void PedirButton_Clicked(object sender, EventArgs e)
     {
-
         if (BindingContext is Product product)
         {
             var order = new Order
@@ -79,23 +78,44 @@ public partial class ProductPage : ContentPage
                     db.Orders.Add(order);
                     await db.SaveChangesAsync();
                 }
-                
-                await DisplayAlert("Éxito", "Orden exitosa", "Aceptar");
+
+                bool guardarTxt = await DisplayAlert("Éxito", "Orden exitosa. ¿Desea guardar una copia en un archivo .txt?", "Sí", "No");
+
+                if (guardarTxt)
+                {
+                    string orderDetails = $"Fecha de Pedido: {DateTime.Now}\n"; // Agregar la fecha y hora de pedido
+                    orderDetails += $"Producto: {product.Nombre}\nDescripción: {product.Descripcion}\nPrecio: {product.Precio:C}\n";
+                    orderDetails += $"Indicaciones Especiales: {TextEditor.Text}\n";
+                    orderDetails += $"Papas Extra: {product.ExtraPapas}\nGaseosa: {product.ConGaseosa}\nSalsas Extra: {product.ExtraSalsas}\n";
+
+                    // Resto del código para guardar el archivo .txt...
+
+                    // Limpiar los valores del editor y los checkboxes
+                    TextEditor.Text = string.Empty; // Limpiar el contenido del editor
+
+                    // Establecer los valores de los checkboxes en falso
+                    ExtraPapasCheckBox.IsChecked = false; // Reemplaza 'ExtraPapasCheckBox' con el nombre correcto del checkbox
+                    ConGaseosaCheckBox.IsChecked = false; // Reemplaza 'ConGaseosaCheckBox' con el nombre correcto del checkbox
+                    ExtraSalsasCheckBox.IsChecked = false; // Reemplaza 'ExtraSalsasCheckBox' con el nombre correcto del checkbox
+
+                    await DisplayAlert("Éxito", "Orden guardada en su carpeta 'Download'", "Aceptar");
+
+                    await Shell.Current.GoToAsync("..");
+                }
+
                 await Shell.Current.GoToAsync("..");
             }
-
             catch (DbUpdateException ex)
             {
                 // Manejo de excepciones aquí
                 Console.WriteLine(ex.InnerException?.Message);
             }
-
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Ocurrió un error al guardar la orden: {ex.Message}", "Aceptar");
             }
+
             cont++;
         }
-
     }
 }

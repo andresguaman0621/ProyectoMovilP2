@@ -3,30 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:ProyectoMovilP2.Models"
              x:Class="ProyectoMovilP2.Views.ProfilePage"
-             Title="ProfilePage">
+             Title="Perfil">
 
     <ContentPage.BindingContext>
         <models:Profile />
     </ContentPage.BindingContext>
 
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-    <StackLayout Padding="20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <!-- Espacio entre foto de perfil y lista -->
+        
 
         <!-- Imagen del usuario en un círculo -->
-        <Frame CornerRadius="100" WidthRequest="200" HeightRequest="200" HasShadow="True" Padding="0" Margin="0" HorizontalOptions="Center">
-            <Image Source="img_menu.svg" Aspect="AspectFill" />
+        <Frame Margin="5,0,0,0" Grid.Row="0" CornerRadius="100" WidthRequest="80" HeightRequest="80" HasShadow="True" HorizontalOptions="Start" VerticalOptions="Center">
+            <Image Source="fotodeperfil.svg" HeightRequest="200"/>
         </Frame>
 
-        <!-- Nombre del usuario -->
-        <Label Text="{Binding NombreUsuario}" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0" />
-        <Label Text="{Binding Title}" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0" />
-        <Label Text="{Binding Version}" FontSize="20" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,20,0,0" />
+        <!-- Texto de Bienvenida -->
+        <Label Margin="100,0,0,0" Grid.Row="0" Text="Bienvenido @EddyArmas" FontFamily="Poppins-SemiBold" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center"  VerticalOptions="Center" BackgroundColor="#ffffff"/>
 
-        <!-- Botones de Ayuda, Configuración y Preferencias -->
-        <!--<StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Spacing="20" Margin="0,30,0,0">
-             <Button Text="Ayuda" HorizontalOptions="Center" />
-             <Button Text="Configuración" HorizontalOptions="Center" />
-             <Button Text="Preferencias" HorizontalOptions="Center"/>
-         </StackLayout>-->
-    </StackLayout>
+        
+        <!-- Lista de opciones -->
+        <StackLayout Grid.Row="1" Spacing="9" Margin="5,25,0,0">
+            <Label Text="Perfil" FontSize="18" FontFamily="Poppins"/>
+            <BoxView HeightRequest="0.1" Margin="0,0,0,0" ></BoxView>
+            <Label Text="Configuración" FontSize="18" FontFamily="Poppins"/>
+            <BoxView HeightRequest="0.1" Margin="0,0,0,0" ></BoxView>
+            <Label Text="Direcciones" FontSize="18" FontFamily="Poppins"/>
+            <BoxView HeightRequest="0.1" Margin="0,0,0,0" ></BoxView>
+            <Label Text="Métodos de Pago" FontSize="18" FontFamily="Poppins"/>
+            <BoxView HeightRequest="0.1" Margin="0,0,0,0" ></BoxView>
+            <Label Text="Ayuda" FontSize="18" FontFamily="Poppins"/>
+            
+            <BoxView HeightRequest="250" Margin="0,0,0,0" Color="White" ></BoxView>
+            <!-- Información de la app -->
+            <Label Text="{Binding Version}" FontSize="14" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="Ninja Food App" FontSize="14" HorizontalOptions="Center" />
+        </StackLayout>
+    </Grid>
 </ContentPage>

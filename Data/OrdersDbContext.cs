@@ -15,7 +15,7 @@ namespace ProyectoMovilP2.Data
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
 
-            options.UseSqlServer("Server=tcp:pedidosninjafoodapp.database.windows.net;Initial Catalog=pedidos-ninja-food;User ID=andresadmin;Password=Caravana.1*;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            options.UseSqlServer("Server=tcp:pedidosninjafoodapp.database.windows.net,1433;Initial Catalog=pedidos-ninja-food;Persist Security Info=False;User ID=andresadmin;Password=Caravana.1*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
 
     }

@@ -17,42 +17,7 @@ public partial class ProductPage : ContentPage
         BindingContext = selectedProduct;
     }
 
-    //private async void PedirButton_Clicked(object sender, EventArgs e)
-    //{
-    //    if (BindingContext is Product product)
-    //    {
-    //        string orderDetails = $"Fecha de Pedido: {DateTime.Now}\n"; // Agregar la fecha y hora de pedido
-    //        orderDetails += $"Producto: {product.Nombre}\nDescripción: {product.Descripcion}\nPrecio: {product.Precio:C}\n";
-    //        orderDetails += $"Indicaciones Especiales: {TextEditor.Text}\n";
-    //        orderDetails += $"Papas Extra: {product.ExtraPapas}\nGaseosa: {product.ConGaseosa}\nSalsas Extra: {product.ExtraSalsas}\n";
-
-    //        try
-    //        {
-
-    //            string downloadsFolderPath="/storage/emulated/0/Download";
-
-    //            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
-    //            string fileName = $"Orden_{timestamp}.txt";
-
-    //            // Ruta completa del archivo en la carpeta de descargas
-    //            string filePath = Path.Combine(downloadsFolderPath, fileName);
-
-    //            // Escritura de los datos en el archivo
-    //            using (StreamWriter writer = File.CreateText(filePath))
-    //            {
-    //                await writer.WriteAsync(orderDetails);
-    //            }
-
-    //            // Muestra el DisplayAlert si se ha guardado correctamente
-    //            await DisplayAlert("Éxito", "Orden exitosa", "Aceptar");
-    //        }
-    //        catch (Exception ex)
-    //        {
-    //            // Manejo de errores en caso de fallo al guardar el archivo
-    //            await DisplayAlert("Error", $"Ocurrió un error al guardar la orden: {ex.Message}", "Aceptar");
-    //        }
-    //    }
-    //}
+    
 
     private async void PedirButton_Clicked(object sender, EventArgs e)
     {
@@ -73,6 +38,7 @@ public partial class ProductPage : ContentPage
 
             try
             {
+                //guardar en base de datos
                 using (var db = new OrdersDbContext())
                 {
                     db.Orders.Add(order);
@@ -81,6 +47,7 @@ public partial class ProductPage : ContentPage
 
                 bool guardarTxt = await DisplayAlert("Éxito", "Orden exitosa. ¿Desea guardar una copia en un archivo .txt?", "Sí", "No");
 
+
                 if (guardarTxt)
                 {
                     string orderDetails = $"Fecha de Pedido: {DateTime.Now}\n"; // Agregar la fecha y hora de pedido
@@ -88,28 +55,40 @@ public partial class ProductPage : ContentPage
                     orderDetails += $"Indicaciones Especiales: {TextEditor.Text}\n";
                     orderDetails += $"Papas Extra: {product.ExtraPapas}\nGaseosa: {product.ConGaseosa}\nSalsas Extra: {product.ExtraSalsas}\n";
 
-                    // Resto del código para guardar el archivo .txt...
+                    //declarar ruta del archivo
+                    string downloadsFolderPath = "/storage/emulated/0/Download";
+                    string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    string fileName = $"Orden_{timestamp}.txt";
 
-                    // Limpiar los valores del editor y los checkboxes
-                    TextEditor.Text = string.Empty; // Limpiar el contenido del editor
+                    string filePath = Path.Combine(downloadsFolderPath, fileName);
 
-                    // Establecer los valores de los checkboxes en falso
-                    ExtraPapasCheckBox.IsChecked = false; // Reemplaza 'ExtraPapasCheckBox' con el nombre correcto del checkbox
-                    ConGaseosaCheckBox.IsChecked = false; // Reemplaza 'ConGaseosaCheckBox' con el nombre correcto del checkbox
-                    ExtraSalsasCheckBox.IsChecked = false; // Reemplaza 'ExtraSalsasCheckBox' con el nombre correcto del checkbox
+                    //guardar archivo .txt
+                    using (StreamWriter writer = File.CreateText(filePath))
+                    {
+                        await writer.WriteAsync(orderDetails);
+                    }
 
                     await DisplayAlert("Éxito", "Orden guardada en su carpeta 'Download'", "Aceptar");
 
-                    await Shell.Current.GoToAsync("..");
+                    TextEditor.Text = string.Empty; 
+
+                    // Establecer los valores de los checkboxes en falso
+                    ExtraPapasCheckBox.IsChecked = false; 
+                    ConGaseosaCheckBox.IsChecked = false; 
+                    ExtraSalsasCheckBox.IsChecked = false;
                 }
 
                 await Shell.Current.GoToAsync("..");
             }
+
+            //error de actualizar base de datos
             catch (DbUpdateException ex)
             {
-                // Manejo de excepciones aquí
+                
                 Console.WriteLine(ex.InnerException?.Message);
             }
+
+            //errores extra
             catch (Exception ex)
             {
                 await DisplayAlert("Error", $"Ocurrió un error al guardar la orden: {ex.Message}", "Aceptar");

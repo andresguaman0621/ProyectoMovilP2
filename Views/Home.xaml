@@ -4,9 +4,10 @@
              x:Class="ProyectoMovilP2.Views.Home"
              xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
              android:TabbedPage.ToolbarPlacement="Bottom">
-    
-    
-    <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
+
+    <StackLayout>
+        <Image Source="logoninja.png" Aspect="AspectFit" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,-5"></Image>
+        <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
         
         <ListView.ItemTemplate>
             
@@ -43,5 +44,5 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
+    </StackLayout>
 </ContentPage>

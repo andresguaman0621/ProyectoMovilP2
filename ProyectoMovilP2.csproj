@@ -59,16 +59,10 @@
 	  <None Remove="Resources\Fonts\Poppins-Regular.ttf" />
 	  <None Remove="Resources\Fonts\Poppins-SemiBold.ttf" />
 	  <None Remove="Resources\Images\fotodeperfil.svg" />
-	  <None Remove="Resources\Images\fotoperfil.jpg" />
 	  <None Remove="Resources\Images\foto_ham.png" />
 	  <None Remove="Resources\Images\foto_papas_dos.png" />
-	  <None Remove="Resources\Images\imagenredonda.jpg" />
-	  <None Remove="Resources\Images\img_contacto.svg" />
 	  <None Remove="Resources\Images\img_menu.svg" />
-	  <None Remove="Resources\Images\img_perfil.svg" />
-	  <None Remove="Resources\Images\img_redes.svg" />
-	  <None Remove="Resources\Images\logo_negro.svg" />
-	  <None Remove="Resources\Images\logo_rojo.svg" />
+	  <None Remove="Resources\Images\logoninja.png" />
 	  <None Remove="Resources\Images\prod_pollo.jpg" />
 	</ItemGroup>
 

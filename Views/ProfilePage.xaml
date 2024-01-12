@@ -4,18 +4,18 @@
              xmlns:models="clr-namespace:ProyectoMovilP2.Models"
              x:Class="ProyectoMovilP2.Views.ProfilePage"
              Title="Perfil">
-
+    
     <ContentPage.BindingContext>
         <models:Profile />
     </ContentPage.BindingContext>
-
+    <ScrollView>
     <Grid Padding="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <!-- Espacio entre foto de perfil y lista -->
+     
         
 
         <!-- Imagen del usuario en un círculo -->
@@ -39,10 +39,16 @@
             <BoxView HeightRequest="0.1" Margin="0,0,0,0" ></BoxView>
             <Label Text="Ayuda" FontSize="18" FontFamily="Poppins"/>
             
+            
             <BoxView HeightRequest="250" Margin="0,0,0,0" Color="White" ></BoxView>
             <!-- Información de la app -->
             <Label Text="{Binding Version}" FontSize="14" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
-            <Label Text="Ninja Food App" FontSize="14" HorizontalOptions="Center" />
+            <Label Text="{Binding Title}" FontSize="14" HorizontalOptions="Center" />
+            
+
+            
+
         </StackLayout>
     </Grid>
+    </ScrollView>
 </ContentPage>

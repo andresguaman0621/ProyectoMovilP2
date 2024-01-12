@@ -26,9 +26,10 @@ namespace ProyectoMovilP2.Models
                 new Product
                 {
                     Nombre = "Crocante Pollo Dorado Especiado",
-                    Descripcion = "Trozos de pollo sazonados y empanizados, fritos con una textura crujiente por fuera y jugosa por dentro.",
+                    Descripcion = "Trozos de pollo sazonados y empanizados, fritos con textura crujiente por fuera y suave por dentro.",
                     Precio = 8.49f,
-                    Imagen = "prod_pollo.jpg"
+                    Imagen = "prod_pollo.jpg",
+
                 },
                 new Product
                 {
@@ -40,17 +41,18 @@ namespace ProyectoMovilP2.Models
                 new Product
                 {
                     Nombre = "Festín Italiano de Pizza Mediana",
-                    Descripcion = "Masa suave cubierta con salsa de tomate fresca, queso mozzarella derretido y una selección de tus ingredientes favoritos.",
+                    Descripcion = "Masa suave cubierta con salsa de tomate, queso mozzarella y una selección de tus ingredientes.",
                     Precio = 10.99f,
                     Imagen = "foto_pizza.png"
                 },
                 new Product
                 {
                     Nombre = "Ninja Súper Grilled Hot-Dog",
-                    Descripcion = "Salchicha a la parrilla en un pan suave y ligeramente tostado, incluyen mostaza, kétchup, cebolla caramelizada.",
+                    Descripcion = "Salchicha a la parrilla en pan suave y ligeramente tostado, incluye mostaza, kétchup y cebolla.",
                     Precio = 4.75f,
                     Imagen = "foto_hotdog.png"
                 }
+
             };
         }
     }

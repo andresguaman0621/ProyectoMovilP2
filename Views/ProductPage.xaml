@@ -4,62 +4,75 @@
              x:Class="ProyectoMovilP2.Views.ProductPage"
              Title="Ordenar Producto">
     <ScrollView>
-    <VerticalStackLayout Padding="10">
+        <VerticalStackLayout Padding="10">
 
-        <!-- Etiquetas de nombre y descripción del producto -->
-        <Label Text="{Binding Nombre}" VerticalOptions="Start" FontFamily="Poppins-Bold" FontSize="27" Margin="10,0,0,0"/>
-        <Label Text="{Binding Precio, StringFormat='{0:C}'}" VerticalOptions="Start" FontFamily="Poppins" FontSize="17" Margin="10,0,0,0"/>
+            <!-- Etiquetas de nombre y descripción del producto -->
+            <Label Text="{Binding Nombre}" VerticalOptions="Start" FontFamily="Poppins-Bold" FontSize="27" Margin="10,0,0,0"/>
+            <Label Text="{Binding Precio, StringFormat='{0:C}'}" VerticalOptions="Start" FontFamily="Poppins" FontSize="17" Margin="10,0,0,0"/>
 
-        <!-- Imagen del producto -->
-       <Image Source="{Binding Imagen}" 
+            <!-- Imagen del producto -->
+            <Image Source="{Binding Imagen}" 
        Aspect="AspectFit" 
        HeightRequest="200" 
        Margin="0,0,0,20" 
        VerticalOptions="Start" />
 
-        
-        <!--Etiqueta de descripcion-->
-        <Label Text="{Binding Descripcion}" VerticalOptions="Start" HorizontalTextAlignment="Center" FontSize="15" FontFamily="Poppins" Margin="14,0,14,20"/>
-        <Label Text="Acompañamientos" Margin="10,0,0,0" FontSize="25" FontFamily="Poppins-Bold"></Label>
+
+            <!--Etiqueta de descripcion-->
+            <Label Text="{Binding Descripcion}" VerticalOptions="Start" HorizontalTextAlignment="Center" FontSize="15" FontFamily="Poppins" Margin="14,0,14,20"/>
+
+            <!--Boton trarer datos API-->
+            <Button Text="Datos nutrucionales" 
+            HorizontalOptions="Center" 
+            BackgroundColor="#CF2F2F" 
+            TextColor="White" 
+            FontFamily="Poppins"
+            FontSize="18"
+            Clicked="BtnApi"
+            VerticalOptions="Start" 
+            Margin="0,0,0,14"/>
+
+            <!--Label mostrar datos-->
+            <Label x:Name="datos" HorizontalOptions="Center" FontFamily="Poppins" FontSize="14"></Label>
 
 
-        
+            <Label Text="Acompañamientos" Margin="10,0,0,0" FontSize="25" FontFamily="Poppins-Bold"></Label>
 
 
-        <!-- Porciones extra Checkboxs -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <StackLayout Orientation="Horizontal" Grid.Column="0">
-                <CheckBox Margin="5,0,0,0" IsChecked="{Binding ExtraPapas}" HorizontalOptions="Start" x:Name="ExtraPapasCheckBox"/>
-                <Label Text="Papas Extra " HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Column="1">
-                <CheckBox IsChecked="{Binding ConGaseosa}" HorizontalOptions="Start" x:Name="ConGaseosaCheckBox"/>
-                <Label Text="Gaseosa" HorizontalOptions="Start" VerticalOptions="Center" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Column="2">
-                <CheckBox Margin="5,0,0,0" IsChecked="{Binding ExtraSalsas}" HorizontalOptions="Start" x:Name="ExtraSalsasCheckBox"/>
-                <Label Text="Salsas extra " HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
-            </StackLayout>
-        </Grid>
+            <!-- Porciones extra Checkboxs -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Orientation="Horizontal" Grid.Column="0">
+                    <CheckBox Margin="5,0,0,0" IsChecked="{Binding ExtraPapas}" HorizontalOptions="Start" x:Name="ExtraPapasCheckBox"/>
+                    <Label Text="Papas Extra " HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="1">
+                    <CheckBox IsChecked="{Binding ConGaseosa}" HorizontalOptions="Start" x:Name="ConGaseosaCheckBox"/>
+                    <Label Text="Gaseosa" HorizontalOptions="Start" VerticalOptions="Center" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                    <CheckBox Margin="5,0,0,0" IsChecked="{Binding ExtraSalsas}" HorizontalOptions="Start" x:Name="ExtraSalsasCheckBox"/>
+                    <Label Text="Salsas extra " HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                </StackLayout>
+            </Grid>
 
 
-        <Label Text="Indicaciones" Margin="10,20,0,0" FontSize="25" FontFamily="Poppins-Bold"></Label>
-        <!-- Indicaciones Especiales (Editor) -->
-        <Editor Placeholder="Instrucciones especiales para tu pedido (opcional)" 
+            <Label Text="Indicaciones" Margin="10,20,0,0" FontSize="25" FontFamily="Poppins-Bold"></Label>
+            <!-- Indicaciones Especiales (Editor) -->
+            <Editor Placeholder="Instrucciones especiales para tu pedido (opcional)" 
         HeightRequest="100" 
         Margin="12,0,0,20" 
         x:Name="TextEditor" 
         Text="{Binding Text}"
         VerticalOptions="Start" />
-        
-        
-        <!-- Botón Pedir -->
-        <Button Text="PEDIR AHORA" 
+
+
+            <!-- Botón Pedir -->
+            <Button Text="PEDIR AHORA" 
         HorizontalOptions="FillAndExpand" 
         BackgroundColor="#CF2F2F" 
         TextColor="White" 
@@ -68,7 +81,7 @@
         Clicked="PedirButton_Clicked"
         VerticalOptions="Start" />
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>

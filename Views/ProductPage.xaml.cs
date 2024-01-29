@@ -2,8 +2,10 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Maui.Controls.PlatformConfiguration;
+using Newtonsoft.Json;
 using ProyectoMovilP2.Data;
 using ProyectoMovilP2.Models;
+using System.Text;
 namespace ProyectoMovilP2.Views;
 
 
@@ -97,4 +99,85 @@ public partial class ProductPage : ContentPage
             cont++;
         }
     }
+
+    private async void BtnApi(object sender, EventArgs e)
+    {
+
+        try
+        {
+            string busqueda = null;
+            if (BindingContext is Product product)
+            {
+
+                switch (product.Nombre)
+                {
+                    case "Hamburguesa Vegana Zen de Campo":
+                        busqueda = "hamburger";
+                        break;
+                    case "Crocante Pollo Dorado Especiado":
+                        busqueda = "chicken";
+                        break;
+                    case "Ninja Crujiente de Papas Doradas":
+                        busqueda = "potato";
+                        break;
+                    case "Festín Italiano de Pizza Mediana":
+                        busqueda = "pizza";
+                        break;
+                    case "Ninja Súper Grilled Hot-Dog":
+                        busqueda = "hotdog";
+                        break;
+                    default:
+                        await Application.Current.MainPage.DisplayAlert("Error", "Nombre de producto incorrecto", "Aceptar");
+                        break;
+                }
+            }
+            string apiKey = "76b440c795f4c1fdcd013260d9f7e5e9";
+            string appId = "318c8b53";
+
+
+
+
+            string apiUrl = $"https://api.edamam.com/api/food-database/v2/parser?app_id={appId}&app_key={apiKey}&ingr={busqueda}";
+
+            using (HttpClient client = new HttpClient())
+            {
+
+                //client.DefaultRequestHeaders.Add("X-Auth-Token", apiKey);
+
+                HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                    var apiData = JsonConvert.DeserializeObject<ModelApi.Rootobject>(jsonResponse);
+
+
+                    StringBuilder nutrientInfo = new StringBuilder();
+
+                    foreach (var parsed in apiData.parsed)
+                    {
+                        nutrientInfo.AppendLine(parsed.food.label);
+                        nutrientInfo.AppendLine($"Calories: {parsed.food.nutrients.ENERC_KCAL}");
+                        nutrientInfo.AppendLine($"Protein: {parsed.food.nutrients.PROCNT}");
+                        nutrientInfo.AppendLine($"Fat: {parsed.food.nutrients.FAT}");
+                        nutrientInfo.AppendLine($"Carbs: {parsed.food.nutrients.CHOCDF}");
+                        nutrientInfo.AppendLine($"Fiber: {parsed.food.nutrients.FIBTG}");
+                        nutrientInfo.AppendLine();
+                    }
+
+                    datos.Text = nutrientInfo.ToString();
+
+
+
+                }
+
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+
 }
